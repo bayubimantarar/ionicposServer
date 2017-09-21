@@ -11,7 +11,7 @@ class ItemsController extends Controller
 {
     public function index()
     {
-    	return Item::all();
+        return Item::all();
     }
 
     public function show($id)
@@ -49,5 +49,14 @@ class ItemsController extends Controller
     	$query = Item::destroy($id);
     	
     	return response()->json(200);
+    }
+
+    public function orderby($temp_orderby)
+    {
+        if($temp_orderby == 1){
+            return Item::orderBy('item_name', 'desc')->get();
+        }else{
+            return Item::orderBy('item_name', 'asc')->get();
+        }
     }
 }

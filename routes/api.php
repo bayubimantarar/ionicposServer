@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'cors'], function() {
 	Route::get('/v1/items', 'Api\ItemsController@index');
 	Route::get('/v1/items/show/{id}', 'Api\ItemsController@show');
+	Route::get('/v1/items/orderby/{temp_orderby}', 'Api\ItemsController@orderby');
 	Route::post('/v1/items/insert', 'Api\ItemsController@insert');
 	Route::put('/v1/items/update', 'Api\ItemsController@update');
 	Route::delete('/v1/items/destroy/{id}', 'Api\ItemsController@destroy');
